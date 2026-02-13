@@ -1,5 +1,7 @@
 import SiteHeader from "./components/SiteHeader";
 import Section from "./components/Section";
+import ProjectsGrid from "./components/ProjectsGrid";
+
 
 export default function Home() {
   return (
@@ -23,9 +25,7 @@ export default function Home() {
           title="Projects"
           subtitle="Selected work"
         >
-          <div className="rounded-lg border p-6 text-sm text-neutral-600">
-            Projects coming soon!
-          </div>
+          <ProjectsGrid />
         </Section>
 
 

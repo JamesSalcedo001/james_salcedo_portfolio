@@ -1,6 +1,6 @@
 import Card from "./Card"
 import Badge from "./Badge"
-
+import { projects } from "../data/projects.js"
 
 function ProjectLinks({ links }) {
     return (
