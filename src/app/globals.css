@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+
+:root {
+    --bg:: 255 255 255;
+    --text: 17 17 17;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+body {
+    color: rgb(var(--text));
+    background: rgb(var(--bg));
+}

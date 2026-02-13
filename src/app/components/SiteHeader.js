@@ -9,7 +9,7 @@ const links = [
 
 export default function SiteHeader() {
     return (
-        <header className="sticky top-0 border-b bg-white/80 backdrop-blur">
+        <header className="sticky top-0 bg-white/30 border-b-[0.09px] backdrop-blur">
             <Container>
                 <div className="flex h-14 items-center justify-between">
                     <a href="#" className="font-semibold">
