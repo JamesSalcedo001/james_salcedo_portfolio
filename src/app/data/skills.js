@@ -10,7 +10,7 @@ export const skills = [
     {
         group: "Database",
         items: ["PostgreSQL"]
-    }
+    },
     {
         group: "Tools",
         items: ["Git/Github", "Stripe", "Postman", "Vercel", "Render"]
