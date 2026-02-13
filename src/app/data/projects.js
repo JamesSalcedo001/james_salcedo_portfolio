@@ -30,6 +30,17 @@ export const projects = [
         },
     },
     {
+        slug: "freelance-light-n-girlz-bodega",
+        title: "Light N Girlz Bodega (Freelance)",
+        description:
+            "Portfolio site showcasing consignment offerings with custom themes and clean, mobile-friendly UI.",
+        tags: ["Next.js", "TailwindCSS", "Vercel"],
+        links: {
+            live: "https://lightn-girlz.vercel.app/",
+            github: "https://github.com/JamesSalcedo001/links_app/tree/main",
+        },
+    },
+    {
         slug: "sweet-bandit",
         title: "The Sweet Bandit (Freelance)",
         description:
@@ -60,27 +71,6 @@ export const projects = [
         links: {
             live: "https://social-app-jpxa.onrender.com/",
             github: "https://github.com/JamesSalcedo001/social_app",
-        },
-    },
-    {
-        slug: "cat-shelter",
-        title: "Cat Shelter",
-        description:
-            "Pet adoption platform with shelter-to-pets relationships, admin-friendly management flows, and a clean visitor experience.",
-        tags: ["React", "Sinatra", "Ruby", "Active Record"],
-        links: {
-            github: "https://github.com/JamesSalcedo001",
-        },
-    },
-    {
-        slug: "freelance-light-n-girlz-bodega",
-        title: "Light N Girlz Bodega (Freelance)",
-        description:
-            "Portfolio site showcasing consignment offerings with custom themes and clean, mobile-friendly UI.",
-        tags: ["Next.js", "TailwindCSS", "Vercel"],
-        links: {
-            live: "https://lightn-girlz.vercel.app/",
-            github: "https://github.com/JamesSalcedo001/links_app/tree/main",
         },
     }
 ];
