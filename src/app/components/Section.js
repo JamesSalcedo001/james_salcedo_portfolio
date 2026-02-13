@@ -7,7 +7,7 @@ export default function Section({ id, title, subtitle, children }) {
                 <div className="space-y-1">
                     {title && <h2 className="text-xl font-semibold">{title}</h2>}
                     {subtitle && (
-                        <p className="text-sm text-neautral-600">{subtitle}</p>
+                        <p className="text-sm text-neutral-600">{subtitle}</p>
                     )}
                 </div>
 
