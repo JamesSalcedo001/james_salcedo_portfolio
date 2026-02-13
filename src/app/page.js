@@ -35,6 +35,7 @@ export default function Home() {
           title="Skills"
           subtitle="Technologies I use often"
         >
+          <p className="mb-4 text-sm text-neutral-700">I prioritize clean fundamentals and practical tools that ship real products</p>
           <SkillsGrid />
         </Section>
 

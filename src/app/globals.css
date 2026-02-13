@@ -2,8 +2,8 @@
 
 
 :root {
-    --bg: 255 255 255;
-    --text: 17 17 17;
+    --bg: rgb(255, 255, 255);
+    --text: rgb(0, 0, 0);
 }
 
 html, body {
@@ -12,6 +12,6 @@ html, body {
 
 
 body {
-    color: rgb(var(--text));
-    background: rgb(var(--bg));
+    color: var(--text);
+    background: var(--bg);
 }
