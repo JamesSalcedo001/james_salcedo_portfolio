@@ -1,6 +1,7 @@
 import SiteHeader from "./components/SiteHeader";
 import Section from "./components/Section";
 import ProjectsGrid from "./components/ProjectsGrid";
+import SkillsGrid from "./components/SkillsGrid";
 
 
 export default function Home() {
@@ -34,9 +35,7 @@ export default function Home() {
           title="Skills"
           subtitle="Technologies I use often"
         >
-          <div className="rounded-lg border p-6 text-sm text-neutral-600">
-            Skills section coming soon!
-          </div>
+          <SkillsGrid />
         </Section>
 
         
