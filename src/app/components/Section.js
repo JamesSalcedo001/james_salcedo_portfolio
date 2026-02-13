@@ -4,7 +4,16 @@ export default function Section({ id, title, subtitle, children }) {
     return (
         <section id={id} className="py-12">
             <Container>
-                <div className="space-y-1"></div>
+                <div className="space-y-1">
+                    {title && <h2 className="text-xl font-semibold">{title}</h2>}
+                    {subtitle && (
+                        <p className="text-sm text-neautral-600">{subtitle}</p>
+                    )}
+                </div>
+
+                <div className="mt-6">
+                    {children}
+                </div>
             </Container>
         </section>
     )
