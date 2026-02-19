@@ -5,8 +5,13 @@ import Section from "./components/Section";
 import ProjectsGrid from "./components/ProjectsGrid";
 import SkillsGrid from "./components/SkillsGrid";
 import Button from "./components/Button";
+import { useState } from "react";
+import Input from "./components/Input";
 
 export default function Home() {
+  const [name, setName] = useState("");
+
+
   return (
     <div>
       <SiteHeader />
@@ -50,8 +55,18 @@ export default function Home() {
           title="Contact"
           subtitle="Ways to reach me"
         >
-          <div className="rounded-lg border p-6 text-neutral-600">
-            Contact form coming soon!
+          <div className="rounded-lg border p-6">
+            <Input 
+              label="Name"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+            />
+
+            <p className="mt-2 text-xs text-neutral-500">
+              Preview: {name || "(empty)"}
+            </p>
           </div>
         </Section>
       </main>
