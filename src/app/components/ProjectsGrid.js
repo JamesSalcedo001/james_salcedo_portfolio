@@ -44,7 +44,7 @@ export default function ProjectsGrid() {
                         </p>
                     </div>
 
-                    <div className="mt-4 flex-flex-wrap gap-2">
+                    <div className="mt-4 flex flex-wrap gap-2">
                         {p.tags.map((t) => (
                             <Badge key={t}>{t}</Badge>
                         ))}

@@ -1,8 +1,10 @@
+"use client";
+
 import SiteHeader from "./components/SiteHeader";
 import Section from "./components/Section";
 import ProjectsGrid from "./components/ProjectsGrid";
 import SkillsGrid from "./components/SkillsGrid";
-
+import Button from "./components/Button";
 
 export default function Home() {
   return (
@@ -18,6 +20,9 @@ export default function Home() {
           <p className="text-sm text-neutral-700 leading-6">
             I focus on building clean, reusable systems and interfaces. I enjoy working with real-world features like payments, dashboards, and automation tools
           </p>
+          <div className="mt-4">
+            <Button onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}>View Projects</Button>
+          </div>
 
         </Section>
 
@@ -39,7 +44,7 @@ export default function Home() {
           <SkillsGrid />
         </Section>
 
-        
+
         <Section
           id="contact"
           title="Contact"
