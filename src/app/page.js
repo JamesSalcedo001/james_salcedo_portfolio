@@ -7,9 +7,11 @@ import SkillsGrid from "./components/SkillsGrid";
 import Button from "./components/Button";
 import { useState } from "react";
 import Input from "./components/Input";
+import TextArea from "./components/TextArea";
 
 export default function Home() {
   const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
 
 
   return (
@@ -56,7 +58,7 @@ export default function Home() {
           subtitle="Ways to reach me"
         >
           <div className="rounded-lg border p-6">
-            <Input 
+            <Input
               label="Name"
               id="name"
               value={name}
@@ -67,7 +69,25 @@ export default function Home() {
             <p className="mt-2 text-xs text-neutral-500">
               Preview: {name || "(empty)"}
             </p>
+
+            <div className="mt-4">
+              <TextArea
+                label="Message"
+                id="message"
+                placeholder="Your message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+
+              <p className="mt-2 text-xs text-neutral-500">
+                Preview {message || "(empty)"}
+              </p>
+
+
+            </div>
           </div>
+
+
         </Section>
       </main>
     </div>
