@@ -1,4 +1,4 @@
-export default function TextArea({ label, id, value, onChange, placeholder, rows = 4 }) {
+export default function TextArea({ label, id, value, onChange, placeholder, rows = 4, ...props }) {
     return (
         <label className="block">
             <span className="text-sm text-neutral-700">{label}</span>
@@ -9,6 +9,7 @@ export default function TextArea({ label, id, value, onChange, placeholder, rows
                 onChange={onChange}
                 placeholder={placeholder}
                 rows={rows}
+                {...props}
             />
         </label>
     )

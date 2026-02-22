@@ -13,11 +13,22 @@ export default function Home() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
+  const [triedSubmit, setTriedSubmit] = useState(false);
+  const [clickedName, setClickedName] = useState(false);
+  const [clickedMessage, setClickedMessage] = useState(false);
 
   const isValid = name.trim().length > 0 && message.trim().length > 0;
+  const nameError = clickedName && name.trim().length === 0;
+  const messageError = clickedMessage && message.trim().length === 0;
 
   function handleSubmit(e) {
     e.preventDefault();
+    setTriedSubmit(true);
+    setClickedMessage(true);
+    setClickedName(true);
+
+    if (!isValid) return;
+
     setSent(true);
 
     setTimeout(() => {
@@ -26,8 +37,8 @@ export default function Home() {
 
     setName("");
     setMessage("");
+    setTriedSubmit(false);
   }
-
 
   return (
     <div>
@@ -82,8 +93,13 @@ export default function Home() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
+              onBlur={() => setClickedName(true)}
             />
 
+            {nameError && (
+              <p className="mt-2 text-xs text-red-600">Name is required</p>
+            )}
+            
             <p className="mt-2 text-xs text-neutral-500">
               Preview: {name || "(empty)"}
             </p>
@@ -95,7 +111,12 @@ export default function Home() {
                 placeholder="Your message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                onBlur={() => setClickedMessage(true)}
               />
+
+              {messageError && (
+                <p className="text-xs mt-2 text-red-600">Message is required</p>
+              )}
 
               <p className="mt-2 text-xs text-neutral-500">
                 Preview {message || "(empty)"}

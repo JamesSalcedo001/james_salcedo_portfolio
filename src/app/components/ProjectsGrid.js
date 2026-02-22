@@ -37,20 +37,26 @@ export default function ProjectsGrid() {
         <div className="grid gap-4 md:grid-cols-2">
             {projects.map((p) => (
                 <Card key={p.slug}>
-                    <div className="space-y-2">
-                        <h3 className="text-base font-semibold">{p.title}</h3>
-                        <p className="text-sm text-neutral-700 leading-6">
-                            {p.description}
-                        </p>
-                    </div>
+                    <div className="flex h-full flex-col">
+                        <div className="flex-1">
+                            <div className="space-y-2">
+                                <h3 className="text-base font-semibold">{p.title}</h3>
+                                <p className="text-sm text-neutral-700 leading-6">
+                                    {p.description}
+                                </p>
+                            </div>
 
-                    <div className="mt-4 flex flex-wrap gap-2">
-                        {p.tags.map((t) => (
-                            <Badge key={t}>{t}</Badge>
-                        ))}
-                    </div>
+                            <div className="mt-4 flex flex-wrap gap-2">
+                                {p.tags.map((t) => (
+                                    <Badge key={t}>{t}</Badge>
+                                ))}
+                            </div>
+                        </div>
 
-                    <ProjectLinks links={p.links} />
+                        <div className="mt-auto">
+                            <ProjectLinks links={p.links} />
+                        </div>
+                    </div>
                 </Card>
             ))}
         </div>
