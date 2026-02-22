@@ -59,7 +59,7 @@ export const projects = [
         tags: ["React", "Vite", "Ruby on Rails", "Redux", "Stripe API"],
         links: {
             live: "https://cool-cat-store.onrender.com/",
-            github: "https://github.com/JamesSalcedo001",
+            github: "https://github.com/JamesSalcedo001/cool_cat_store",
         },
     },
     {
