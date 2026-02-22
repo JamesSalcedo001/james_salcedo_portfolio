@@ -26,7 +26,7 @@ export const projects = [
         tags: ["Next.js", "Ruby on Rails", "PostgreSQL", "TailwindCSS", "Vercel", "PWA"],
         links: {
             live: "https://date-night-planning-frontend.vercel.app/",
-            github: "https://github.com/JamesSalcedo001/date-night-planning-frontend/tree/main",
+            // github: "https://github.com/JamesSalcedo001/date-night-planning-frontend/tree/main",
         },
     },
     {
@@ -37,7 +37,7 @@ export const projects = [
         tags: ["Next.js", "TailwindCSS", "Vercel"],
         links: {
             live: "https://lightn-girlz.vercel.app/",
-            github: "https://github.com/JamesSalcedo001/links_app/tree/main",
+            // github: "https://github.com/JamesSalcedo001/links_app/tree/main",
         },
     },
     {
@@ -48,7 +48,7 @@ export const projects = [
         tags: ["Next.js", "React", "TailwindCSS"],
         links: {
             live: "https://sweet-bandit-official.vercel.app/",
-            github: "https://github.com/JamesSalcedo001/sweet_bandit_official/tree/main",
+            // github: "https://github.com/JamesSalcedo001/sweet_bandit_official/tree/main",
         },
     },
     {

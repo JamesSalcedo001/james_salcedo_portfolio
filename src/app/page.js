@@ -12,10 +12,11 @@ import TextArea from "./components/TextArea";
 export default function Home() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  
+  const isValid = name.trim().length > 0 && message.trim().length > 0;
 
   function handleSubmit(e) {
     e.preventDefault();
-
     console.table({ name: name, message: message });
 
     setName("")
@@ -93,7 +94,7 @@ export default function Home() {
               </p>
 
               <div className="mt-4">
-                <Button type="submit">Send Message</Button>
+                <Button type="submit" disabled={!isValid}>Send Message</Button>
               </div>
 
 

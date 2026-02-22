@@ -10,7 +10,7 @@ function ProjectLinks({ links }) {
                     href={links.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-md bg-neutral-900 px-3 py-1 text-sm text-white hover:bg-neutral-800"
+                    className="rounded-md shadow-lg bg-emerald-500 px-3 py-1.5 text-sm text-white hover:bg-emerald-300 hover:text-gray-500"
                 >
                     Live
                 </a>
@@ -21,7 +21,7 @@ function ProjectLinks({ links }) {
                     href={links.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-md border px-3 py-1 text-sm hover:bg-neutral-50"
+                    className="rounded-md shadow px-3 py-1 text-sm hover:bg-neutral-50"
                 >
                     Code
                 </a>
