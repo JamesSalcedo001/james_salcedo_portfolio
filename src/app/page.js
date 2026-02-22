@@ -13,31 +13,37 @@ export default function Home() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
-  const [triedSubmit, setTriedSubmit] = useState(false);
   const [clickedName, setClickedName] = useState(false);
   const [clickedMessage, setClickedMessage] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const isValid = name.trim().length > 0 && message.trim().length > 0;
   const nameError = clickedName && name.trim().length === 0;
   const messageError = clickedMessage && message.trim().length === 0;
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setTriedSubmit(true);
+
     setClickedMessage(true);
     setClickedName(true);
 
-    if (!isValid) return;
+    if (!isValid || isSending) return;
+    setIsSending(true);
+
+    await new Promise((r) => setTimeout(r, 800));
 
     setSent(true);
+    setName("");
+    setMessage("");
+    setClickedMessage(false);
+    setClickedName(false);
+
 
     setTimeout(() => {
       setSent(false);
     }, 2000);
 
-    setName("");
-    setMessage("");
-    setTriedSubmit(false);
+    setIsSending(false);
   }
 
   return (
@@ -94,15 +100,12 @@ export default function Home() {
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
               onBlur={() => setClickedName(true)}
+              disabled={isSending}
             />
 
             {nameError && (
               <p className="mt-2 text-xs text-red-600">Name is required</p>
             )}
-            
-            <p className="mt-2 text-xs text-neutral-500">
-              Preview: {name || "(empty)"}
-            </p>
 
             <div className="mt-4">
               <TextArea
@@ -112,18 +115,15 @@ export default function Home() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onBlur={() => setClickedMessage(true)}
+                disabled={isSending}
               />
 
               {messageError && (
                 <p className="text-xs mt-2 text-red-600">Message is required</p>
               )}
 
-              <p className="mt-2 text-xs text-neutral-500">
-                Preview {message || "(empty)"}
-              </p>
-
               <div className="mt-4">
-                <Button type="submit" disabled={!isValid}>Send Message</Button>
+                <Button type="submit" disabled={!isValid || isSending}>{isSending ? "Sending..." : "Send Message"}</Button>
               </div>
 
 
