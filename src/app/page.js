@@ -13,6 +13,15 @@ export default function Home() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.table({ name: name, message: message });
+
+    setName("")
+    setMessage("");
+  }
+
 
   return (
     <div>
@@ -57,7 +66,7 @@ export default function Home() {
           title="Contact"
           subtitle="Ways to reach me"
         >
-          <div className="rounded-lg border p-6">
+          <form className="rounded-lg border p-6" onSubmit={handleSubmit}>
             <Input
               label="Name"
               id="name"
@@ -83,9 +92,13 @@ export default function Home() {
                 Preview {message || "(empty)"}
               </p>
 
+              <div className="mt-4">
+                <Button type="submit">Send Message</Button>
+              </div>
+
 
             </div>
-          </div>
+          </form>
 
 
         </Section>
