@@ -6,7 +6,7 @@ export default function Button({ children, type = "button", className = "", ...p
     return (
         <button
             type={type}
-            className={baseStyles + className}
+            className={`${baseStyles} ${className}`}
             {...props}
         >
             {children}

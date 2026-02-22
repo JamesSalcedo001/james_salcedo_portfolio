@@ -12,14 +12,19 @@ import TextArea from "./components/TextArea";
 export default function Home() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  
+  const [sent, setSent] = useState(false);
+
   const isValid = name.trim().length > 0 && message.trim().length > 0;
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.table({ name: name, message: message });
+    setSent(true);
 
-    setName("")
+    setTimeout(() => {
+      setSent(false);
+    }, 2000);
+
+    setName("");
     setMessage("");
   }
 
@@ -68,6 +73,9 @@ export default function Home() {
           subtitle="Ways to reach me"
         >
           <form className="rounded-lg border p-6" onSubmit={handleSubmit}>
+            {sent && (
+              <h3 className="rounded-md mb-4 p-3 text-sm text-emerald-700 bg-emerald-50">Message sent!</h3>
+            )}
             <Input
               label="Name"
               id="name"
