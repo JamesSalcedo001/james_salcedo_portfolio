@@ -34,7 +34,7 @@ function ProjectLinks({ links }) {
 
 export default function ProjectsGrid() {
     return (
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2 mt-6">
             {projects.map((p) => (
                 <Card key={p.slug}>
                     <div className="flex h-full flex-col">

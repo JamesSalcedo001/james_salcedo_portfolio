@@ -53,7 +53,7 @@ export default function Home() {
           <p className="text-sm text-neutral-700 leading-6">
             I focus on building clean, reusable systems and interfaces. I enjoy working with real-world features like payments, dashboards, and automation tools
           </p>
-          <div className="mt-4">
+          <div className="mt-6">
             <Button onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}>View Projects</Button>
           </div>
 
@@ -83,7 +83,7 @@ export default function Home() {
           title="Contact"
           subtitle="Ways to reach me"
         >
-          <form className="rounded-lg border p-6" onSubmit={handleSubmit}>
+          <form className="rounded-lg border p-6 mt-2" onSubmit={handleSubmit}>
             {sent && (
               <h3 className="rounded-md mb-4 p-3 text-sm text-emerald-700 bg-emerald-50">Message sent!</h3>
             )}

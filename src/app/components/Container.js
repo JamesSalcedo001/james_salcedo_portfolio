@@ -1,6 +1,6 @@
 export default function Container({ children, size = "content" }) {
     const widths = {
-        content: "max-w-3xl",
+        content: "max-w-6xl",
         wide: "max-w-9xl",
     }
     return (

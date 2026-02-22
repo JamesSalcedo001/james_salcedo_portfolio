@@ -1,7 +1,7 @@
 export const projects = [
     {
         slug: "convertclick-robots-take-over",
-        title: "ConvertClick Digital Analytics (Robots Take Over)",
+        title: "Robots Take Over (ConvertClick Digital Analytics))",
         description:
             "Client-facing responsive homepage with Stripe-integrated donations, puzzle-style image reveal, and community engagement. Frontend + GitHub lead for a 12-person internship team.",
         tags: [
