@@ -30,20 +30,39 @@ export default function Home() {
     if (!isValid || isSending) return;
     setIsSending(true);
 
-    await new Promise((r) => setTimeout(r, 800));
 
-    setSent(true);
-    setName("");
-    setMessage("");
-    setClickedMessage(false);
-    setClickedName(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          message: message.trim(),
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.ok) {
+        throw new Error("Request failed");
+      }
+
+      setSent(true);
+      setName("");
+      setMessage("");
+      setClickedMessage(false);
+      setClickedName(false);
 
 
-    setTimeout(() => {
-      setSent(false);
-    }, 2000);
+      setTimeout(() => {
+        setSent(false);
+      }, 2000);
 
-    setIsSending(false);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSending(false);
+    }
   }
 
   return (
