@@ -54,9 +54,7 @@ export default function Home() {
       setClickedName(false);
 
 
-      setTimeout(() => {
-        setSent(false);
-      }, 2000);
+      setTimeout(() => setSent(false), 2000);
 
     } catch (err) {
       console.error(err);
