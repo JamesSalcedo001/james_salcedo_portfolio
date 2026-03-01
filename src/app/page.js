@@ -98,10 +98,10 @@ export default function Home() {
           title="Software Engineer"
           subtitle="I build full stack, practical web apps with Next.js, Rails, JavaScript and PostgreSQL"
         >
-          <p className="text-sm text-neutral-700 leading-6">
+          <p className="mt-6 max-w-2xl text-base md:text-lg text-neutral-700 leading-7">
             I focus on building clean, reusable systems and interfaces. I enjoy working with real-world features like payments, dashboards, and automation tools
           </p>
-          <div className="mt-6">
+          <div className="mt-8">
             <Button onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}>View Projects</Button>
           </div>
 
