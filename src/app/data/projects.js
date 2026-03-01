@@ -1,7 +1,7 @@
 export const projects = [
     {
         slug: "convertclick-robots-take-over",
-        title: "Robots Take Over (ConvertClick Digital Analytics))",
+        title: "Robots Take Over (ConvertClick Digital Analytics)",
         description:
             "Client-facing responsive homepage with Stripe-integrated donations, puzzle-style image reveal, and community engagement. Frontend + GitHub lead for a 12-person internship team.",
         tags: [
@@ -56,7 +56,7 @@ export const projects = [
         title: "Cool Cat Store",
         description:
             "E-commerce storefront with real-time cart management, Stripe checkout integration, and user profiles with customizable avatars.",
-        tags: ["React", "Vite", "Ruby on Rails", "Redux", "Stripe API"],
+        tags: ["React", "Vite", "Ruby on Rails", "Redux", "Stripe"],
         links: {
             live: "https://cool-cat-store.onrender.com/",
             github: "https://github.com/JamesSalcedo001/cool_cat_store",
