@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req) {
     try {
         const { name, message } = await req.json();
@@ -19,6 +17,7 @@ export async function POST(req) {
             return NextResponse.json({ ok: false, errors}, { status: 400 });
         }
 
+        const apiKey = process.env.RESEND_API_KEY;
         const to = process.env.CONTACT_TO_EMAIL;
         const from = process.env.CONTACT_FROM_EMAIL;
 
@@ -29,8 +28,10 @@ export async function POST(req) {
             );
         }
 
+        const resend = new Resend(apiKey);
+
         const subject = `Portfolio Contact: ${cleanName}`;
-        const text = `Name: ${cleanName}\n\nMessage"\n${cleanMessage}`;
+        const text = `Name: ${cleanName}\n\nMessage:\n${cleanMessage}`;
 
         const result = await resend.emails.send({
             from,

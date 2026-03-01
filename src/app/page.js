@@ -16,6 +16,8 @@ export default function Home() {
   const [clickedName, setClickedName] = useState(false);
   const [clickedMessage, setClickedMessage] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({});
+  const [serverError, setServerError] = useState("");
 
   const isValid = name.trim().length > 0 && message.trim().length > 0;
   const nameError = clickedName && name.trim().length === 0;
@@ -28,8 +30,10 @@ export default function Home() {
     setClickedName(true);
 
     if (!isValid || isSending) return;
-    setIsSending(true);
 
+    setIsSending(true);
+    setServerError("");
+    setFieldErrors({});
 
     try {
       const res = await fetch("/api/contact", {
@@ -44,10 +48,17 @@ export default function Home() {
       const data = await res.json();
 
       if (!res.ok || !data.ok) {
-        throw new Error("Request failed");
+        if (data?.errors) {
+          setFieldErrors(data.errors);
+        } else {
+          setServerError(data?.error || "Something went wrong. Please try again.");
+        }
+        return;
       }
 
       setSent(true);
+      setFieldErrors({});
+      setServerError("");
       setName("");
       setMessage("");
       setClickedMessage(false);
@@ -58,6 +69,7 @@ export default function Home() {
 
     } catch (err) {
       console.error(err);
+      setServerError("Network error. Please try again.")
     } finally {
       setIsSending(false);
     }
@@ -110,19 +122,30 @@ export default function Home() {
             {sent && (
               <h3 className="rounded-md mb-4 p-3 text-sm text-emerald-700 bg-emerald-50">Message sent!</h3>
             )}
+            {serverError && (
+              <p className="rounded-md mb-4 p-3 text-sm text-red-700 bg-red-50">
+                {serverError}
+              </p>
+            )}
             <Input
               label="Name"
               id="name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value);
+                setServerError("");
+                setFieldErrors((prev) => ({ ...prev, name: "" }));
+              }}
               placeholder="Your name"
               onBlur={() => setClickedName(true)}
               disabled={isSending}
             />
 
-            {nameError && (
+            {fieldErrors.name ? (
+              <p className="mt-2 text-xs text-red-600">{fieldErrors.name}</p>
+            ) : nameError ? (
               <p className="mt-2 text-xs text-red-600">Name is required</p>
-            )}
+            ) : null}
 
             <div className="mt-4">
               <TextArea
@@ -130,14 +153,20 @@ export default function Home() {
                 id="message"
                 placeholder="Your message"
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                  setServerError("");
+                  setFieldErrors((prev) => ({ ...prev, message: "" }));
+                }}
                 onBlur={() => setClickedMessage(true)}
                 disabled={isSending}
               />
 
-              {messageError && (
-                <p className="text-xs mt-2 text-red-600">Message is required</p>
-              )}
+              {fieldErrors.message ? (
+                <p className="mt-2 text-xs text-red-600">{fieldErrors.message}</p>
+              ) : messageError ? (
+                <p className="mt-2 text-xs text-red-600">Message is required</p>
+              ) : null}
 
               <div className="mt-4">
                 <Button type="submit" disabled={!isValid || isSending}>{isSending ? "Sending..." : "Send Message"}</Button>
