@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
     try {
@@ -16,11 +19,32 @@ export async function POST(req) {
             return NextResponse.json({ ok: false, errors}, { status: 400 });
         }
 
-        return NextResponse.json({ ok: true }, { status: 200 });
-    } catch {
+        const to = process.env.CONTACT_TO_EMAIL;
+        const from = process.env.CONTACT_FROM_EMAIL;
+
+        if (!process.env.RESEND_API_KEY || !to || !from) {
+            return NextResponse.json(
+                { ok: false, error: "Server email config missing" },
+                { status: 500 }
+            );
+        }
+
+        const subject = `Portfolio Contact: ${cleanName}`;
+        const text = `Name: ${cleanName}\n\nMessage"\n${cleanMessage}`;
+
+        const result = await resend.emails.send({
+            from,
+            to,
+            subject,
+            text,
+        });
+
+        return NextResponse.json({ ok: true, id: result.data?.id ?? null }, { status: 200 });
+    } catch (err) {
+        console.error(err);
         return NextResponse.json(
-            { ok: false, error: "Invalid JSON" },
-            { status: 400 }
+            { ok: false, error: "Server error sending email" },
+            { status: 500 } 
         );
     }
 }
