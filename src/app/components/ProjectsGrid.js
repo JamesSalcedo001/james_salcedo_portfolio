@@ -41,7 +41,7 @@ export default function ProjectsGrid() {
                     <div className="flex h-full flex-col">
 
                         {p.image && (
-                            <div className="relative mb-4 h-44 md:h-74 w-full overflow-hidden rounded-lg">
+                            <div className="relative mb-4 h-44 md:h-74 w-full overflow-hidden rounded-lg bg-neutral-100">
                                 <Image
                                     src={p.image}
                                     alt={p.title}
