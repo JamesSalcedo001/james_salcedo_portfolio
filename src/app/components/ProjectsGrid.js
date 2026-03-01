@@ -1,6 +1,7 @@
 import Card from "./Card"
 import Badge from "./Badge"
 import { projects } from "../data/projects.js"
+import Image from "next/image";
 
 function ProjectLinks({ links }) {
     return (
@@ -34,10 +35,22 @@ function ProjectLinks({ links }) {
 
 export default function ProjectsGrid() {
     return (
-        <div className="grid gap-8 md:grid-cols-2 mt-6">
+        <div className="grid gap-10 md:grid-cols-2 mt-6">
             {projects.map((p) => (
                 <Card key={p.slug}>
                     <div className="flex h-full flex-col">
+
+                        {p.image && (
+                            <div className="relative mb-4 h-44 md:h-74 w-full overflow-hidden rounded-lg">
+                                <Image
+                                    src={p.image}
+                                    alt={p.title}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                        )}
+                        
                         <div className="flex-1">
                             <div className="space-y-2">
                                 <h3 className="text-base font-semibold">{p.title}</h3>

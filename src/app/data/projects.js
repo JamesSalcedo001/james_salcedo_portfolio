@@ -14,6 +14,7 @@ export const projects = [
             "GitHub",
             "Figma",
         ],
+        image: "/projects/webp/lwr.webp",
         links: {
             live: "https://rto-final.vercel.app/",
         },
@@ -24,6 +25,7 @@ export const projects = [
         description:
             "Mobile-friendly date spot planner with categories, location/time considerations, a Rails API backend, and an installable PWA experience with offline support.",
         tags: ["Next.js", "Ruby on Rails", "PostgreSQL", "TailwindCSS", "Vercel", "PWA"],
+        image: "/projects/webp/date-night.webp",
         links: {
             live: "https://date-night-planning-frontend.vercel.app/",
             // github: "https://github.com/JamesSalcedo001/date-night-planning-frontend/tree/main",
@@ -35,6 +37,7 @@ export const projects = [
         description:
             "Portfolio site showcasing consignment offerings with custom themes and clean, mobile-friendly UI.",
         tags: ["Next.js", "TailwindCSS", "Vercel"],
+        image: "/projects/webp/bodega.webp",
         links: {
             live: "https://lightn-girlz.vercel.app/",
             // github: "https://github.com/JamesSalcedo001/links_app/tree/main",
@@ -46,6 +49,7 @@ export const projects = [
         description:
             "Minimalist business page with social media integration for local bakery",
         tags: ["Next.js", "React", "TailwindCSS"],
+        image: "/projects/webp/sweet-bandit.webp",
         links: {
             live: "https://sweet-bandit-official.vercel.app/",
             // github: "https://github.com/JamesSalcedo001/sweet_bandit_official/tree/main",
@@ -57,6 +61,7 @@ export const projects = [
         description:
             "E-commerce storefront with real-time cart management, Stripe checkout integration, and user profiles with customizable avatars.",
         tags: ["React", "Vite", "Ruby on Rails", "Redux", "Stripe"],
+        image: "/projects/webp/cool-cat.webp",
         links: {
             live: "https://cool-cat-store.onrender.com/",
             github: "https://github.com/JamesSalcedo001/cool_cat_store",
@@ -68,6 +73,7 @@ export const projects = [
         description:
             "Space-themed social media app with CRUD posts/comments, authentication, and an engaging UI for social interaction.",
         tags: ["React", "Ruby on Rails", "useContext", "Active Record"],
+        image: "/projects/webp/space-base.webp",
         links: {
             live: "https://social-app-jpxa.onrender.com/",
             github: "https://github.com/JamesSalcedo001/social_app",

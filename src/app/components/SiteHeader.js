@@ -15,7 +15,7 @@ export default function SiteHeader() {
     }
 
     return (
-        <header className="sticky top-0 bg-white/30 border-b-[0.09px] backdrop-blur">
+        <header className="sticky top-0 z-50 bg-white/30 border-b-[0.09px] backdrop-blur">
             <Container size="wide">
                 <div className="flex h-14 items-center justify-between">
                     <a href="#top" className="font-semibold" onClick={(e) => handleNavClick(e, "#top")}>

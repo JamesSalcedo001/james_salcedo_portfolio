@@ -4,7 +4,7 @@ import { skills } from "../data/skills";
 
 export default function SkillsGrid() {
     return (
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-10 md:grid-cols-2">
             {skills.map((g) => (
                 <Card key={g.group}>
                     <h3 className="text-base font-semibold">{g.group}</h3>
