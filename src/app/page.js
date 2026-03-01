@@ -13,21 +13,30 @@ export default function Home() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
+  const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
   const [clickedName, setClickedName] = useState(false);
   const [clickedMessage, setClickedMessage] = useState(false);
+  const [clickedEmail, setClickedEmail] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({});
   const [serverError, setServerError] = useState("");
 
-  const isValid = name.trim().length > 0 && message.trim().length > 0;
+  const isValid =
+    name.trim().length > 0 &&
+    email.trim().length > 0 &&
+    message.trim().length > 0;
+
   const nameError = clickedName && name.trim().length === 0;
   const messageError = clickedMessage && message.trim().length === 0;
+  const emailError = clickedEmail && email.trim().length === 0;
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     setClickedMessage(true);
     setClickedName(true);
+    setClickedEmail(true);
 
     if (!isValid || isSending) return;
 
@@ -42,6 +51,8 @@ export default function Home() {
         body: JSON.stringify({
           name: name.trim(),
           message: message.trim(),
+          email: email.trim(),
+          website,
         }),
       });
 
@@ -61,8 +72,10 @@ export default function Home() {
       setServerError("");
       setName("");
       setMessage("");
+      setEmail("");
       setClickedMessage(false);
       setClickedName(false);
+      setClickedEmail(false);
 
 
       setTimeout(() => setSent(false), 2000);
@@ -118,7 +131,7 @@ export default function Home() {
           title="Contact"
           subtitle="Ways to reach me"
         >
-          <form className="rounded-lg border p-6 mt-2" onSubmit={handleSubmit}>
+          <form className="rounded-lg shadow-md bg-white p-6 mt-2" onSubmit={handleSubmit}>
             {sent && (
               <h3 className="rounded-md mb-4 p-3 text-sm text-emerald-700 bg-emerald-50">Message sent!</h3>
             )}
@@ -148,6 +161,29 @@ export default function Home() {
             ) : null}
 
             <div className="mt-4">
+              <Input
+                label="Email"
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setServerError("");
+                  setFieldErrors((prev) => ({ ...prev, email: "" }));
+                }}
+                placeholder="you@email.com"
+                onBlur={() => setClickedEmail(true)}
+                disabled={isSending}
+              />
+
+              {fieldErrors.email ? (
+                <p className="mt-2 text-xs text-red-600">{fieldErrors.email}</p>
+              ) : emailError ? (
+                <p className="mt-2 text-xs text-red-600">Email is required</p>
+              ) : null}
+            </div>
+
+            <div className="mt-4">
               <TextArea
                 label="Message"
                 id="message"
@@ -173,6 +209,17 @@ export default function Home() {
               </div>
 
 
+            </div>
+            <div className="hidden" aria-hidden="true">
+              <label>
+                Website
+                <input
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </label>
             </div>
           </form>
 
