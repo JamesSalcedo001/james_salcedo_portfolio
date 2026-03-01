@@ -41,8 +41,8 @@ export default function Badge({ children }) {
   const dot = DOTS[label] ?? "bg-gray-400";
 
   return (
-    <span className="inline-flex items-center gap-2 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-200 shadow-sm">
-      <span className={`h-2 w-2 rounded-full ${dot}`} />
+    <span className="group inline-flex items-center gap-2 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-200 shadow-sm">
+      <span className={`h-2 w-2 rounded-full ${dot} transition-transform duration-600 delay-25 group-hover:scale-140`} />
       {label}
     </span>
   );
